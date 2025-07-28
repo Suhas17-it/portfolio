@@ -7,4 +7,8 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  base: '/portfolio/', // Set the base path for GitHub Pages
+  build: {
+    outDir: 'dist', // Output directory for the build
+  },  
 });
