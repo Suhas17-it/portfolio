@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
+
 // C++ and DSA themed icons/elements for the hero section
 const TechIcon = ({ children, delay }: { children: React.ReactNode; delay: number }) => (
   <motion.div
@@ -88,13 +89,14 @@ export default function Hero() {
         className="text-center relative z-10"
       >
         <motion.img
-          variants={profileVariants}
-          initial="hidden"
-          animate="visible"
-          src="/images/profile.png"
-          alt="Profile"
-          className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-purple-500 hover:border-pink-500 transition-colors duration-300"
-        />
+  variants={profileVariants}
+  initial="hidden"
+  animate="visible"
+  src="images/profile.png"
+  alt="Profile"
+  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-purple-500 hover:border-pink-500 transition-colors duration-300"
+/>
+
         <motion.h1
           custom={1}
           variants={textVariants}
