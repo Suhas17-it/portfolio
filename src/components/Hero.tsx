@@ -92,7 +92,7 @@ export default function Hero() {
   variants={profileVariants}
   initial="hidden"
   animate="visible"
-  src="/public/images/profile.png"
+  src="./public/images/profile.png"
   alt="Profile"
   className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-purple-500 hover:border-pink-500 transition-colors duration-300"
 />
