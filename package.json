@@ -10,7 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://suhas17-it.github.io/portfolio",
+  "homepage": "https://suhas17-it.github.io/portfolio/",
   "dependencies": {
     "@react-three/drei": "^9.99.5",
     "@react-three/fiber": "^8.15.16",

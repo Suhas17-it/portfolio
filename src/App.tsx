@@ -10,7 +10,7 @@ import CodingProfiles from './pages/CodingProfiles';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/portfolio">
       <div className="relative min-h-screen">
         <Background />
         <Navbar />
