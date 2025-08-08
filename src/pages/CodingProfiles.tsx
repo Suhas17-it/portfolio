@@ -4,7 +4,6 @@ import {
   Trophy,
   Star,
   Code,
-  Target,
   Award,
   ExternalLink,
   TrendingUp,
@@ -39,6 +38,7 @@ export default function CodingProfiles() {
       rating: 1609,
       solved: 672,
       rank: "--x",
+      link: "https://leetcode.com/kssuhas",
       color: "from-orange-500 to-yellow-500",
       bgColor: "bg-orange-900/20",
       borderColor: "border-orange-500/40",
@@ -55,6 +55,7 @@ export default function CodingProfiles() {
       username: "Suhas_k_s",
       rating: "--",
       solved: 2322,
+      link: "https://skillrack.com/faces/profile.xhtml",
       color: "from-amber-500 to-orange-500",
       bgColor: "bg-amber-900/20",
       borderColor: "border-amber-500/40",
@@ -63,8 +64,9 @@ export default function CodingProfiles() {
     {
       name: "HackerRank",
       username: "suhas17",
-      rating: -1,
+      rating: "--",
       rank: "Gold in Java",
+      link: "https://www.hackerrank.com/suhas17",
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-green-900/20",
       borderColor: "border-green-500/40",
@@ -77,10 +79,21 @@ export default function CodingProfiles() {
     }
   ];
 
+  // ✅ Dynamically computed values
+  const totalSolved = platforms.reduce((sum, p) => sum + (p.solved || 0), 0);
+
+  const validRatings = platforms
+    .map(p => Number(p.rating))
+    .filter(r => !isNaN(r));
+
+  const avgRating = validRatings.length
+    ? Math.round(validRatings.reduce((a, b) => a + b, 0) / validRatings.length)
+    : "--";
+
   const overallStats = [
-    { label: "Total Problems Solved", value: "2944", icon: Code },
-    { label: "Contest Participations", value: "16", icon: Trophy },
-    { label: "Average Rating", value: "1609", icon: Star },
+    { label: "Total Problems Solved", value: totalSolved.toString(), icon: Code },
+    { label: "Contest Participations", value: "16", icon: Trophy }, // You can also make this dynamic
+    { label: "Average Rating", value: avgRating.toString(), icon: Star },
     { label: "Active Days", value: "263 Days", icon: Calendar }
   ];
 
@@ -142,13 +155,14 @@ export default function CodingProfiles() {
                     <p className="text-gray-400">@{platform.username}</p>
                   </div>
                 </div>
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                <a
+                  href={platform.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   <ExternalLink size={20} />
-                </motion.button>
+                </a>
               </div>
 
               {/* Rating and Rank */}
